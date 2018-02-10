@@ -2,7 +2,7 @@
 
 ## Google Cloud Platform
 
-In this tutorial, we use the [Google Cloud Platform](https://cloud.google.com/) to provision the compute infrastructure. You can [sign up](https://cloud.google.com/free/) for $300 in free credits, which will be more than sufficient to complete all of the labs in this tutorial.
+In this tutorial, we use the [Google Cloud Platform](https://cloud.google.com/) to provision the compute infrastructure. You can [sign up](https://cloud.google.com/free/) for $300 in free credits, which will be more than sufficient to complete all of the labs in this tutorial. I hope it will anyway!!! Three Exclamation Points
 
 ## Google Cloud Platform SDK
 
