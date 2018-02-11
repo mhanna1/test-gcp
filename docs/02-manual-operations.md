@@ -272,6 +272,12 @@ $ gcloud --format="value(networkInterfaces[0].accessConfigs[0].natIP)" compute i
 
 Now open your browser and try to reach the application at the public IP and port 9292.
 
+```
+NOTE
+To learn how to host an image in github and to include the image in your documentation see the youtube video at ... https://www.youtube.com/watch?v=nvPOUdz5PL4    Slick Trick
+```
+
+
 For example, I put in my browser the following URL http://35.186.255.79:9292, but note that you'll have your own IP address.
 
 ![2018-02-11 15_01_22-raddit __on a google cloud platform posts](https://user-images.githubusercontent.com/12055220/36077806-31dd77fc-0f3d-11e8-96e4-8fc1d6e90e5a.jpg)
