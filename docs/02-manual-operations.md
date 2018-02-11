@@ -277,6 +277,9 @@ For example, I put in my browser the following URL http://35.186.255.79:9292, bu
 ![2018-02-11 15_01_22-raddit __on a google cloud platform posts](https://user-images.githubusercontent.com/12055220/36077806-31dd77fc-0f3d-11e8-96e4-8fc1d6e90e5a.jpg)
 
 
+![2018-02-11 15_01_22-raddit __on a google cloud platform posts](https://user-images.githubusercontent.com/12055220/36077806-31dd77fc-0f3d-11e8-96e4-8fc1d6e90e5a.jpg)
+
+
 ## Conclusion
 
 Congrats! You've just deployed your application. It is running on a dedicated set of compute resources in the cloud and is accessible by a public IP. Now Internet users can enjoy using your application.
