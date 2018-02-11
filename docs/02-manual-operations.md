@@ -261,6 +261,9 @@ Now open your browser and try to reach the application at the public IP and port
 
 For example, I put in my browser the following URL http://104.155.1.152:9292, but note that you'll have your own IP address.
 
+![2018-02-11 15_01_22-raddit __on a google cloud platform posts](https://user-images.githubusercontent.com/12055220/36077806-31dd77fc-0f3d-11e8-96e4-8fc1d6e90e5a.jpg)
+
+
 ## Conclusion
 
 Congrats! You've just deployed your application. It is running on a dedicated set of compute resources in the cloud and is accessible by a public IP. Now Internet users can enjoy using your application.
