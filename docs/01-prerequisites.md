@@ -34,13 +34,13 @@ This tutorial assumes a default compute region and zone have been configured.
 Set a default compute region:
 
 ```bash
-$ gcloud config set compute/region europe-west1
+$ gcloud config set compute/region us-east1
 ```
 
 Set a default compute zone:  
 
 ```bash
-$ gcloud config set compute/zone europe-west1-b
+$ gcloud config set compute/zone us-east1
 ```
 
 Verify the configuration settings:
