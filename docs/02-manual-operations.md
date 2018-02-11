@@ -249,6 +249,19 @@ $ gcloud compute firewall-rules create allow-raddit-tcp-9292 \
     --direction ingress \
     --rules tcp:9292 \
     --source-ranges 0.0.0.0/0
+    
+Output:
+ gcloud compute firewall-rules create allow-raddit-tcp-9292 \
+>     --network default \
+>     --action allow \
+>     --direction ingress \
+>     --rules tcp:9292 \
+>     --source-ranges 0.0.0.0/0
+Creating firewall...\Created [https://www.googleapis.com/compute/v1/projects/fluid-brook-194917/global/firewalls/allow-raddit-tcp-9292].
+Creating firewall...done.
+NAME                   NETWORK  DIRECTION  PRIORITY  ALLOW     DENY
+allow-raddit-tcp-9292  default  INGRESS    1000      tcp:9292
+
 ```
 
 Get the public IP of the VM:
@@ -259,7 +272,10 @@ $ gcloud --format="value(networkInterfaces[0].accessConfigs[0].natIP)" compute i
 
 Now open your browser and try to reach the application at the public IP and port 9292.
 
-For example, I put in my browser the following URL http://104.155.1.152:9292, but note that you'll have your own IP address.
+For example, I put in my browser the following URL http://35.186.255.79:9292, but note that you'll have your own IP address.
+
+![2018-02-11 15_01_22-raddit __on a google cloud platform posts](https://user-images.githubusercontent.com/12055220/36077806-31dd77fc-0f3d-11e8-96e4-8fc1d6e90e5a.jpg)
+
 
 ## Conclusion
 
