@@ -40,7 +40,7 @@ $ gcloud config set compute/region us-east1
 Set a default compute zone:  
 
 ```bash
-$ gcloud config set compute/zone us-east1
+$ gcloud config set compute/zone us-east1-a
 ```
 
 Verify the configuration settings:

@@ -4,7 +4,7 @@ To better understand the `Infrastructure as Code` (`IaC`) concept, we will first
 
 ## Intro
 
-Imagine you have developed a new cool application called [raddit](https://github.com/Artemmkin/raddit).
+Imagine you have found a new cool application called [raddit](https://github.com/Artemmkin/raddit).
 
 You want to run your application on a dedicated server and make it available to the Internet users.
 
@@ -13,6 +13,19 @@ You heard about the `public cloud` thing, which allows you to provision compute 
 You've signed up for a free tier of [Google Cloud Platform](https://cloud.google.com/) (GCP) and are about to start deploying your application.
 
 ## Provision Compute Resources
+
+Start your bash or virtual machine and set some parameters
+
+```bash
+$ gcloud auth login
+```
+
+If you have setup things correctly you will get a url back to paste into your browser, paste it into the browser and it will provide you a verification code to paste back into bash.
+
+# You will need to setup a "PROJECT"
+
+Be sure to keep the project ID --- it is not looked up in the creat command below
+
 
 First thing we will do is to provision a virtual machine (VM) inside GCP for running the application.
 
@@ -24,6 +37,7 @@ $ gcloud compute instances create raddit-instance-2 \
     --image-project ubuntu-os-cloud \
     --boot-disk-size 10GB \
     --machine-type n1-standard-1
+    --projects <YOUR PROJECTS ID NOT THE NAME HERE>
 ```
 
 ## Create an SSH key pair
