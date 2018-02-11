@@ -43,6 +43,13 @@ Set a default compute zone:
 $ gcloud config set compute/zone us-east1
 ```
 
+Set your test projects "Project ID" into the config by doing 
+%%%%%%% NOT YOUR PROJECT NAME %%%%%%%%
+
+```bash
+ gcloud config set project <YOUR "Project ID" HERE>
+```
+
 Verify the configuration settings:
 
 ```bash
