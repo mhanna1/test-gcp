@@ -142,7 +142,7 @@ raddit-user@raddit-instance-2:~$ bundle version
 Bundler version 1.16.1 (2017-12-21 commit 0034ef341)
 ```
 
-Clone the [application repo](https://github.com/Artemmkin/raddit), but first make sure `git` is installed:
+Clone the [application repo](https://github.com/mhanna1/raddit.git), but first make sure `git` is installed:
 ```bash
 $ git version
 
@@ -156,7 +156,7 @@ At the time of writing the latest image of Ubuntu 16.04 which GCP provides has `
 Clone the application repo into the home directory of `raddit-user` user:
 
 ```bash
-$ git clone https://github.com/Artemmkin/raddit.git
+$ git clone https://github.com/mhanna1/raddit.git
 ```
 
 Install application dependencies using Bundler:
