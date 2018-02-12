@@ -69,12 +69,15 @@ Save it to the `configuration.sh` file inside created `scripts` directory:
 
 ```bash
 #!/bin/bash
-set -e
 
-echo "  ----- install ruby and bundler -----  "
-sudo apt-get update
+/usr/bin/apt-get update
+
+pwd
+
 sudo apt-get install -y ruby-full build-essential
+
 sudo gem install --no-rdoc --no-ri bundler
+
 
 echo "  ----- install mongodb -----  "
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
@@ -94,6 +97,10 @@ sudo mv raddit.service /etc/systemd/system/raddit.service
 ## Deployment script
 
 Create a script for copying the application code from GitHub repository, installing dependent gems and starting it.
+
+NOTE: Make sure that your unix file does not have invisible RETURN characters on the end of the lines as this can mess up the execution of the commands.  You can remove these with
+
+$ tr -d '\r' < INPUTFILE  > OUTPUTFILE
 
 Save it into `deploy.sh` file inside `scripts` directory:
 
@@ -115,16 +122,13 @@ sudo systemctl enable raddit
 
 ## Run the scripts
 
-Copy the `scripts` directory to the created VM:
+Grab IP address and Copy the `scripts` directory to the created VM:
+It will then ssh you into the instance
+NOTE: change the path to your directory where you put the scripts
+
 
 ```bash
-$ INSTANCE_IP=$(gcloud --format="value(networkInterfaces[0].accessConfigs[0].natIP)" compute instances describe raddit-instance-3)
-$ scp -r ./scripts raddit-user@${INSTANCE_IP}:/home/raddit-user
-```
-
-Connect to the VM via SSH:
-```bash
-$ ssh raddit-user@${INSTANCE_IP}
+$ INSTANCE_IP=$(gcloud --format="value(networkInterfaces[0].accessConfigs[0].natIP)" compute instances describe raddit-instance-3) ; echo $INSTANCE_IP ; scp -i ~/.ssh/raddit-user -r  /mnt/c/Users/mark.hanna/Documents/GitHub/iac-tutorial/scripts raddit-user@${INSTANCE_IP}:/home/raddit-user ; ssh raddit-user@${INSTANCE_IP} -i ~/.ssh/raddit-user
 ```
 
 Run the scripts:
