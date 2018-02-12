@@ -18,10 +18,21 @@ Start a new VM for this lab. The command should look familiar:
 
 ```bash
 $ gcloud compute instances create raddit-instance-3 \
-    --image-family ubuntu-1604-lts \
-    --image-project ubuntu-os-cloud \
-    --boot-disk-size 10GB \
-    --machine-type n1-standard-1
+      --image-family ubuntu-1604-lts \
+      --image-project ubuntu-os-cloud \
+      --boot-disk-size 200GB  \
+      --machine-type n1-standard-1 
+      
+Output:
+mark@L-Hanna-Mark:~/.ssh$ gcloud compute instances create raddit-instance-3 \
+>       --image-family ubuntu-1604-lts \
+>       --image-project ubuntu-os-cloud \
+>       --boot-disk-size 10GB  \
+>       --machine-type n1-standard-1
+WARNING: You have selected a disk size of under [200GB]. This may result in poor I/O performance. For more information, see: https://developers.google.com/compute/docs/disks#performance.
+Created [https://www.googleapis.com/compute/v1/projects/fluid-brook-194917/zones/us-east4-a/instances/raddit-instance-3].
+NAME               ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
+raddit-instance-3  us-east4-a  n1-standard-1               10.150.0.3   35.230.165.202  RUNNING
 ```
 
 ## Infrastructure as Code project
@@ -61,23 +72,23 @@ Save it to the `configuration.sh` file inside created `scripts` directory:
 set -e
 
 echo "  ----- install ruby and bundler -----  "
-apt-get update
-apt-get install -y ruby-full build-essential
-gem install --no-rdoc --no-ri bundler
+sudo apt-get update
+sudo apt-get install -y ruby-full build-essential
+sudo gem install --no-rdoc --no-ri bundler
 
 echo "  ----- install mongodb -----  "
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.2.list
-apt-get update
-apt-get install -y mongodb-org
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+sudo echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
 
 echo "  ----- start mongodb -----  "
-systemctl start mongod
-systemctl enable mongod
+sudo systemctl start mongod
+sudo systemctl enable mongod
 
 echo "  ----- copy unit file for application -----  "
-wget https://gist.githubusercontent.com/Artemmkin/ce82397cfc69d912df9cd648a8d69bec/raw/7193a36c9661c6b90e7e482d256865f085a853f2/raddit.service
-mv raddit.service /etc/systemd/system/raddit.service
+sudo wget https://gist.githubusercontent.com/Artemmkin/ce82397cfc69d912df9cd648a8d69bec/raw/7193a36c9661c6b90e7e482d256865f085a853f2/raddit.service
+sudo mv raddit.service /etc/systemd/system/raddit.service
 ```
 
 ## Deployment script
