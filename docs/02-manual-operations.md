@@ -211,7 +211,7 @@ Feb 11 19:36:04 raddit-instance-2 systemd[1]: Started High-performance, schema-f
 Download a systemd unit file for starting the application from a gist:
 
 ```bash
-$ wget https://gist.githubusercontent.com/Artemmkin/ce82397cfc69d912df9cd648a8d69bec/raw/7193a36c9661c6b90e7e482d256865f085a853f2/raddit.service
+$ wget https://gist.github.com/mhanna1/edb663c5d0ca0a2294c174a4ca4bb9b5/raw/fad5bd66141544dc9fb07c13865a9f55e7b03e35/raddit.service
 ```
 
 Move it to the systemd directory
