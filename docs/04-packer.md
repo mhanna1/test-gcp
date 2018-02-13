@@ -1,5 +1,36 @@
 # Packer
 
+If you are using the the Windows 10 Linux Subsystem you can load packer and terraform into it using these commands.
+
+```bash
+#!/bin/bash
+
+apt-get install unzip 
+
+cd ~
+mkdir ~/packer
+cd ~/packer
+packer_url=$(curl https://releases.hashicorp.com/index.json | jq '{packer}' | egrep "linux.*64" | sort -r | head -1 | awk -F[\"] '{print $4}')
+curl -o packer.zip $packer_url
+unzip packer.zip
+
+cd ~
+mkdir ~/terraform  
+cd ~/terraform
+terraform_url=$(curl https://releases.hashicorp.com/index.json | jq '{terraform}' | egrep "linux.*64" | sort -r | head -1 | awk -F[\"] '{print $4}')
+curl -o terraform.zip $terraform_url
+unzip terraform.zip
+  
+echo 'export PATH=$PATH:~/terraform/:~/packer/' >>~/.bashrc
+cd ~
+
+. ~/.bashrc
+
+packer version
+terraform version
+
+```
+
 Scripts helped us speed up the process of system configuration, made it more reliable compared to doing everything manually, but there are still ways for improvement.
 
 In this lab, we're going to take a look at the first IaC tool in this tutorial called [Packer](https://www.packer.io/) and see how it can help us improve our operations.

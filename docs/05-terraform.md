@@ -1,6 +1,17 @@
 # Terraform
 
-In the previous lab, you used Packer to make your system configuration faster and more reliable. But we still have a lot to improve.
+
+Using the Windows 10 bash subsystem
+
+```bash
+$ aptget install jq
+$ for i in packer terraform ; do curl https://releases.hashicorp.com/${i}/index.json 2>/dev/null | jq -r '.versions[].builds[].url' | egrep -v 'beta|rc' | sort -V | grep 'linux.*amd64' | tail -1 | xargs wget ; done
+
+
+
+```
+
+
 
 In this lab, we're going to learn about another IaC tool by HashiCorp called [Terraform](https://www.terraform.io/).
 
